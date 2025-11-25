@@ -14,6 +14,7 @@ const ESI_QUEUE = "EVEREF_IMPORT_ESI";
 
 const workerFN = async (job: Job) => {
     const jobData: JobData = job.data as JobData;
+    console.log(jobData.JobType);
     try {
         switch (jobData.JobType) {
             case JobTypes.COLLECT:
@@ -39,7 +40,7 @@ const workerFN = async (job: Job) => {
                     jobData.Dataset,
                     d.TargetJobType,
                     startDate,
-                    new Date(d.DateRange.EndDate)
+                    endDate
                 );
 
                 break;

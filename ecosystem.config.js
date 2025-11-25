@@ -36,6 +36,24 @@ module.exports = {
                 NODE_ENV: "debug",
             },
         },
+        {
+            name: "killmail",
+            script: "build/killmails.js",
+            time: true,
+            instances: 1,
+            autorestart: true,
+            max_restarts: 50,
+            watch: true,
+            max_memory_restart: "200M",
+            appendEnvToName: true,
+            namespace: "everef",
+            env_production: {
+                NODE_ENV: "production",
+            },
+            env_debug: {
+                NODE_ENV: "debug",
+            },
+        },
     ],
     deploy: {
         production: {
